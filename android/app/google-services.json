@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "403281978799",
+    "project_id": "astler",
+    "storage_bucket": "astler.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403281978799:android:774dce43c66a19b08bfb5a",
+        "android_client_info": {
+          "package_name": "com.example.astler"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALAWAR81G03fU2wEEFskDLtTmRuFXK_aA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
