@@ -29,6 +29,14 @@ class First extends StatelessWidget {
             style: TextStyle(
                 fontSize: 26, fontWeight: FontWeight.bold, color: Colors.black),
           ),
+          Divider(),
+          Text(
+            'شريك دربك للنجاح',
+            style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                color: Color.fromARGB(255, 91, 90, 90)),
+          ),
           LottieBuilder.asset(
             'assets/images/architect.json',
             width: 300,

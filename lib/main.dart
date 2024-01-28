@@ -12,6 +12,7 @@ class Astler extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
+      getPages: pages,
       theme: theme,
       debugShowCheckedModeBanner: false,
       home: Home(),
