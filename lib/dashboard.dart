@@ -1,17 +1,19 @@
+import 'package:astler/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import './courses.dart';
 
-const Catologes = [
+var Catologes = [
   {
-    "name": "قائمه الكورسات",
-    "route": "/courses",
+    "name": "قائمه الكورسات".tr,
+    "route": Courses.route,
     "png": false,
     "img": "assets/images/courses.json",
   },
   {
     "name": "الاعدادات",
-    "route": "/courses",
+    "route": Settings.route,
     "png": false,
     "img": "assets/images/settings.json",
   },
@@ -46,9 +48,7 @@ class Dashboard extends StatelessWidget {
         title: Text('Astler'),
       ),
       body: Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  colors: [Colors.blue, Color.fromARGB(255, 4, 1, 155)])),
+          color: Colors.blue[400],
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
@@ -90,41 +90,52 @@ class Dashboard extends StatelessWidget {
                   shrinkWrap: true,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      mainAxisSpacing: 5,
-                      crossAxisSpacing: 6),
+                      mainAxisSpacing: 13,
+                      crossAxisSpacing: 13),
                   itemBuilder: (context, index) {
                     bool png = Catologes[index]['png'] as bool;
-                    return Container(
-                      padding: EdgeInsets.all(8),
-                      decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black45),
-                        boxShadow: [
-                          BoxShadow(
-                              blurStyle: BlurStyle.inner,
-                              offset: Offset(-2, 4),
-                              blurRadius: 4,
-                              color: Colors.black54)
-                        ],
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          png
-                              ? Image.asset(
-                                  'assets/images/logo.png',
-                                  width: 100,
-                                )
-                              : LottieBuilder.asset(
-                                  Catologes[index]['img'] as String,
-                                  width: 100,
-                                ),
-                          Text(
-                            Catologes[index]['name'] as String,
-                            style: TextStyle(
-                                fontSize: 19, fontWeight: FontWeight.w400),
-                          ),
-                        ],
+                    return GestureDetector(
+                      onTap: () {
+                        Get.toNamed(Catologes[index]['route'] as String);
+                      },
+                      child: Container(
+                        padding: EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: Colors.blue[400],
+                          // border: Border.all(color: Colors.black45),
+                          boxShadow: [
+                            BoxShadow(
+                                offset: Offset(4, 4),
+                                spreadRadius: 1,
+                                blurRadius: 15,
+                                color: Colors.blue[700] as Color),
+                            BoxShadow(
+                                offset: Offset(-4, -4),
+                                spreadRadius: 1,
+                                blurRadius: 15,
+                                color: Colors.blue[500] as Color),
+                          ],
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            png
+                                ? Image.asset(
+                                    'assets/images/logo.png',
+                                    width: 100,
+                                  )
+                                : LottieBuilder.asset(
+                                    Catologes[index]['img'] as String,
+                                    width: 100,
+                                  ),
+                            Text(
+                              Catologes[index]['name'] as String,
+                              style: TextStyle(
+                                  fontSize: 19, fontWeight: FontWeight.w400),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   },

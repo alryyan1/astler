@@ -1,3 +1,4 @@
+import 'package:astler/controllers/localController.dart';
 import 'package:astler/intro/first.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,6 +29,7 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       body: Stack(
         children: [
@@ -47,7 +49,11 @@ class _HomeState extends State<Home> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                SmoothPageIndicator(controller: controller, count: 3),
+                SmoothPageIndicator(
+                  controller: controller,
+                  count: 3,
+                  effect: JumpingDotEffect(),
+                ),
                 ElevatedButton(
                     onPressed: lastpage ? goToHome : changePage,
                     child: Text(lastpage ? 'الرئيسيه' : 'التالي'))
