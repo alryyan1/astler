@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import './forms/addcoruse.dart';
 import './forms/addTrainee.dart';
+import 'about.dart';
+import 'forms/editAbout.dart';
 
 class Settings extends StatelessWidget {
   const Settings({super.key});
@@ -23,8 +25,18 @@ class Settings extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              NewSetting(name: 'اضافه كورس' , page:AddCourse.route ,),
-              NewSetting(name: 'اضافه مدرب',page: AddTrainee.route,),
+              NewSetting(
+                name: 'اضافه كورس',
+                page: AddCourse.route,
+              ),
+              NewSetting(
+                name: 'اضافه مدرب',
+                page: AddTrainee.route,
+              ),
+              NewSetting(
+                name: 'حول أستلر',
+                page: EditAbout.route,
+              ),
             ],
           )),
     );

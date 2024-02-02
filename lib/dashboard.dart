@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:get/get.dart';
 import './courses.dart';
+import 'about.dart';
 
 var Catologes = [
   {
@@ -19,7 +20,7 @@ var Catologes = [
   },
   {
     "name": "عن أستلر",
-    "route": "/courses",
+    "route": About.route,
     "png": true,
     "img": "assets/images/logo.png",
   },
@@ -120,7 +121,7 @@ class Dashboard extends StatelessWidget {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            png
+                            Hero(tag: Catologes[index]['name'] as String, child:  png
                                 ? Image.asset(
                                     'assets/images/logo.png',
                                     width: 100,
@@ -128,7 +129,8 @@ class Dashboard extends StatelessWidget {
                                 : LottieBuilder.asset(
                                     Catologes[index]['img'] as String,
                                     width: 100,
-                                  ),
+                                  ), ),
+                          
                             Text(
                               Catologes[index]['name'] as String,
                               style: TextStyle(
